@@ -1,60 +1,57 @@
-/*
- * http://love.hackerzhou.me
- */
 
-// variables
-var $win = $(window);
-var clientWidth = $win.width();
-var clientHeight = $win.height();
+//变量
+var $win=$(窗户);
+var clientWidth=$win。宽度();
+var clientHeight=$win。高度();
 
-$(window).resize(function() {
-    var newWidth = $win.width();
-    var newHeight = $win.height();
-    if (newWidth != clientWidth && newHeight != clientHeight) {
-        location.replace(location);
+$(窗户).调整大小(功能() {
+    var newWidth=$win。宽度();
+    var 新高度=$win。高度();
+    如果 (newWidth！=客户端宽度和新高度！=客户端高度) {
+位置。取代(位置);
     }
 });
 
-(function($) {
-	$.fn.typewriter = function() {
-		this.each(function() {
-			var $ele = $(this), str = $ele.html(), progress = 0;
-			$ele.html('');
-			var timer = setInterval(function() {
-				var current = str.substr(progress, 1);
-				if (current == '<') {
-					progress = str.indexOf('>', progress) + 1;
-				} else {
-					progress++;
+(功能($) {
+$.FN.打字机=功能() {
+		这.每一个(功能() {
+			var $ele=$(这),str=$el.超文本标记语言(),进步=0;
+$el.超文本标记语言('');
+			var 计时器=setInterval(功能() {
+				var 当前=str.substr(进步，1);
+				如果 (当前=='<') {
+progress=str.indexOf('>'，进度)+1;
+				} 其他 {
+进步++；
 				}
-				$ele.html(str.substring(0, progress) + (progress & 1 ? '_' : ''));
-				if (progress >= str.length) {
-					clearInterval(timer);
+$el.超文本标记语言(str.子字串(0，进度)+(进度和1?'_':''));
+				如果 (进度>=str.长度) {
+					clearInterval(计时器);
 				}
-			}, 75);
+			},75);
 		});
-		return this;
+		返回 这;
 	};
 })(jQuery);
 
-function timeElapse(date){
-	var current = Date();
-	var seconds = (Date.parse(current) - Date.parse(date)) / 1000;
-	var days = Math.floor(seconds / (3600 * 24));
-	seconds = seconds % (3600 * 24);
-	var hours = Math.floor(seconds / 3600);
-	if (hours < 10) {
-		hours = "0" + hours;
+功能 timeElapse(日期){
+	var 当前=日期();
+	var 秒=(日期。解析(当前)-约会。解析(日期))/1000;
+	var 天=数学。地板(秒/(3600*24));
+秒=秒%(3600*24);
+	var 小时=数学。地板(秒/3600);
+	如果 (小时<10) {
+小时="0"+小时；
 	}
-	seconds = seconds % 3600;
-	var minutes = Math.floor(seconds / 60);
-	if (minutes < 10) {
-		minutes = "0" + minutes;
+秒=秒%3600;
+	var 分钟=数学。地板(秒/60);
+	如果 (分钟<10) {
+分钟="0"+分钟；
 	}
-	seconds = seconds % 60;
-	if (seconds < 10) {
-		seconds = "0" + seconds;
+秒=秒%60;
+	如果 (秒<10) {
+秒="0"+秒；
 	}
-	var result = "第 <span class=\"digit\">" + days + "</span> 天 <span class=\"digit\">" + hours + "</span> 小时 <span class=\"digit\">" + minutes + "</span> 分钟 <span class=\"digit\">" + seconds + "</span> 秒"; 
-	$("#clock").html(result);
+	var 结果="第<span class=\"数字\">"+天+"</span>天<span class=\"数字\">"+小时+"</span>小时<span class=\"数字\">"+分钟+"</span>分钟<span class=\"数字\">"+秒+"</span>秒";
+	$("#时钟").超文本标记语言(结果);
 }
